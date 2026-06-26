@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MatrixJournal — Trading Journal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <section class="login-card">
+      <div class="brand-mark">MJ</div>
+      <h1>MatrixJournal</h1>
+      <p>Private local gate for your hybrid trading journal. Replace with real auth when backend storage is added.</p>
+      <form id="loginForm">
+        <label>Username <input id="username" autocomplete="username" value="admin" /></label>
+        <label>Password <input id="password" type="password" autocomplete="current-password" placeholder="Password" /></label>
+        <button type="submit">Unlock journal</button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+      <small>Default password is documented in README for local-only use. Do not use this as production security.</small>
+    </section>
+  </div>
+
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <div>
+        <h1>MatrixJournal</h1>
+        <p>Futures-first trading journal, analytics, XML/JSON export, and behavior coach.</p>
+      </div>
+      <div class="toolbar">
+        <label>Theme <select id="themeSelect"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+        <label>Layout <select id="densitySelect"><option value="compact">Compact</option><option value="moderate" selected>Moderate</option><option value="comprehensive">Comprehensive</option></select></label>
+        <button id="logoutBtn" class="ghost">Lock</button>
+      </div>
+    </header>
+
+    <main class="grid-shell">
+      <aside class="panel controls-panel">
+        <h2>Import</h2>
+        <label class="dropzone" for="txtFile">Upload ChatGPT TXT record<input id="txtFile" type="file" accept=".txt,text/plain" /></label>
+        <textarea id="txtPaste" placeholder="Or paste a MatrixJournal TXT record here..."></textarea>
+        <button id="parsePasteBtn">Import pasted TXT</button>
+        <details open><summary>Fee schedule</summary><div id="feeEditor" class="fee-editor"></div><button id="saveFeesBtn" class="secondary">Save fees</button></details>
+        <details><summary>Data tools</summary>
+          <div class="button-stack">
+            <button id="exportJsonBtn">Export JSON</button>
+            <button id="exportXmlBtn">Export XML</button>
+            <label class="file-button">Import JSON/XML<input id="dataImport" type="file" accept=".json,.xml,application/json,text/xml" /></label>
+            <button id="resetBtn" class="danger">Reset journal</button>
+          </div>
+        </details>
+      </aside>
+
+      <section class="dashboard">
+        <section class="cards" id="statsCards"></section>
+        <section class="panel chart-panel"><div class="section-title"><h2>Equity & Outcomes</h2><select id="instrumentFilter"><option value="all">All instruments</option></select></div><canvas id="equityChart" height="130"></canvas></section>
+        <section class="panel"><div class="section-title"><h2>Coach Warnings</h2><span id="warningCount" class="pill">0</span></div><div id="warnings" class="insight-list"></div></section>
+        <section class="panel"><div class="section-title"><h2>Journal Records</h2><input id="searchInput" placeholder="Search setup, tag, note..." /></div><div id="records" class="records"></div></section>
+        <section class="panel comprehensive-only"><div class="section-title"><h2>Behavior Library</h2><span>200 concise coaching essays</span></div><div id="essayLibrary" class="essay-grid"></div></section>
+      </section>
+    </main>
+  </div>
+
+  <template id="recordTemplate">
+    <article class="record-card">
+      <button class="record-head"></button>
+      <div class="record-body"></div>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>

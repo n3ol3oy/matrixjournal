@@ -1,0 +1,24 @@
+[META]
+Date: 2026-06-26
+Title: Double bottom neckline attempt
+Instrument: MESU6
+Direction: Long
+Setup: Potential double bottom
+Setup Quality: Successful
+Tags: double bottom, neckline, risk free exit, TP1
+
+[EXECUTIONS]
+Trade: 1; Instrument: MESU6; Direction: Long; Quantity: 1; Order Submitted: 06:38:50; Entry Price: 7367.25; Exit Price: 7371.50; Exit Type: Protective stop moved into profit; Initial Stop: Unknown; Points: 4.25; Ticks: 17; Gross PnL: 21.25; Fees: 1.24
+Trade: 2; Instrument: MESU6; Direction: Long; Quantity: 1; Order Submitted: 07:44:31; Entry Price: 7365.00; Exit Price: 7375.75; Exit Type: TP1 limit filled; Initial Stop: 7345.00; Points: 10.75; Ticks: 43; Gross PnL: 53.75; Fees: 1.24
+
+[THESIS]
+I saw a possible double bottom forming. I entered near the second bottom, expecting price to return toward the neckline.
+
+[MANAGEMENT]
+Trade 1 was protected when conviction weakened and exited risk free with profit. Trade 2 repeated the neckline thesis and took TP1. I had only one contract, so I could not split into TP1, TP2, and TP3.
+
+[OUTCOME]
+Successful double-bottom setup with two profitable executions. Total gross result was +15 points, +60 ticks, or $75 before fees.
+
+[LESSONS]
+Record exact fill times and initial stop for every execution. Screenshot before entry, during management, and after exit.
