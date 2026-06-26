@@ -93,3 +93,19 @@ node scripts/build-single-file.js
 ```
 
 The output is `dist/matrixjournal-single.html`.
+
+## Deploy to GitHub Pages
+
+This repository includes a GitHub Actions workflow at `.github/workflows/deploy-pages.yml` that deploys the static app to GitHub Pages.
+
+To activate it:
+
+1. Push this branch to GitHub.
+2. Open the repository on GitHub and go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Run the **Deploy MatrixJournal to GitHub Pages** workflow manually, or push to `main`, `master`, or `work`.
+5. Open the Pages URL shown in the workflow summary.
+
+The workflow also runs `node scripts/build-single-file.js` before upload so the hosted site includes the latest `dist/matrixjournal-single.html` bundle.
+
+If you deploy somewhere else, such as Netlify, Vercel, Cloudflare Pages, or a regular cPanel host, upload the repository root as a static site. No server build step is required for `index.html`; the Node script is only for regenerating the optional single-file bundle.
